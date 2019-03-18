@@ -158,7 +158,6 @@
             [params setObject:@((page - 1) * resultPerPage + 1) forKey:@"start"];
         }
         [params removeObjectForKey:keyForSearchPage(self.service)];
-        [params removeObjectForKey:keyForSearchResultPerPage(self.service)];
     
     }
     else if (self.service == DZNPhotoPickerControllerServiceBingImages)
