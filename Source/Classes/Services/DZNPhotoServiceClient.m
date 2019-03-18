@@ -154,12 +154,12 @@
         [params setObject:@"large" forKey:@"imgSize"];
         [params setObject:@"png,jpg" forKey:@"fileType"];
       //  [params setObject:@"cc_publicdomain" forKey:@"rights"];
-        
-
         if (page > 1) {
             [params setObject:@((page - 1) * resultPerPage + 1) forKey:@"start"];
         }
         [params removeObjectForKey:keyForSearchPage(self.service)];
+        [params removeObjectForKey:keyForSearchResultPerPage(self.service)];
+    
     }
     else if (self.service == DZNPhotoPickerControllerServiceBingImages)
     {
