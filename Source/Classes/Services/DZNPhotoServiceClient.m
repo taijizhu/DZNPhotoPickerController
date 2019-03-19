@@ -150,9 +150,17 @@
         [params setObject:[self consumerSecret] forKey:keyForAPIConsumerSecret(self.service)];
         [params setObject:@"image" forKey:@"searchType"];
         [params setObject:@"off" forKey:@"safe"];
-        [params setObject:@"photo" forKey:@"imgType"];
-        [params setObject:@"large" forKey:@"imgSize"];
-        [params setObject:@"png,jpg" forKey:@"fileType"];
+        if ([keyword containsString:@"clipart"]) {
+            [params setObject:@"clipart" forKey:@"imgType"];
+            [params setObject:@"medium" forKey:@"imgSize"];
+            [params setObject:@"png" forKey:@"fileType"];
+        }
+        else {
+            [params setObject:@"photo" forKey:@"imgType"];
+            [params setObject:@"large" forKey:@"imgSize"];
+            [params setObject:@"png,jpg" forKey:@"fileType"];
+        }
+        
       //  [params setObject:@"cc_publicdomain" forKey:@"rights"];
         if (page > 1) {
             [params setObject:@((page - 1) * resultPerPage + 1) forKey:@"start"];
